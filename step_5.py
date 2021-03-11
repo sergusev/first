@@ -1,17 +1,5 @@
-import sys
-
-result = 0
-while True:
-    line = input('Ввести число или ввести q для завершения: ')
-    tokens = line.split(" ")
-    for token in tokens:
-        try:
-            number = float(token)
-            result += number
-        except:
-            if token == 'q':
-                print(f'Сумма чисел {result}')
-                exit(0)
-            else:
-                print(f'Сумма чисел {result}. Произошла ошибка ввода', file=sys.stderr)
-                exit(1)
+from functools import reduce
+def func(el_p, el):
+    return el_p * el
+print(f'Список четных значений {[el for el in range(99, 1001) if el % 2 == 0]}')
+print(f'Результат перемножения элементов списка {reduce(func, [el for el in range(99, 1001) if el % 2 == 0])}')
